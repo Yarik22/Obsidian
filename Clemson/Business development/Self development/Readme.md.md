@@ -1,0 +1,1 @@
+**Jobs related to developing self skills and promoting life quality**
