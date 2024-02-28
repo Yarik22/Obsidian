@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Business development/Work/Readme.md.md",
+                "file": "Business development/Self development/Readme.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Business development/Work/Readme.md.md",
+                "file": "Business development/Self development/Readme.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Business development/Work/Readme.md.md",
+                "file": "Business development/Self development/Readme.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Business development/Work/Readme.md.md"
+                "file": "Business development/Self development/Readme.md"
               }
             }
           }
@@ -148,9 +148,9 @@
   },
   "active": "c7a0ed7829c0eb04",
   "lastOpenFiles": [
-    "Business development/Self development/Readme.md.md",
-    "Business development/Work/Readme.md.md",
-    "Business development/University/Readme.md.md",
+    "Business development/University/Readme.md",
+    "Business development/Work/Readme.md",
+    "Business development/Self development/Readme.md",
     "Business development/Untitled.md",
     "Business development/Work",
     "Business development/University",
