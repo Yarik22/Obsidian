@@ -271,7 +271,7 @@ export const routes: Routes = [
   { path: '**', component: PageNotFoundComponent },
 ];
 ```
-Component need RouterLink import.
+Component need `RouterLink` import.
 ```typescript
 @Component({
   selector: 'app-home',
@@ -317,6 +317,7 @@ Template.
 ```html
 <p>{{ movie?.title }}</p>
 ```
+Root component has to have `<router-outlet/>` in template as it is a place where route is rendered.
 ### Managing data
 Mainly data is managed via services which are injected to the components. Defining service.
 ```typescript
@@ -465,4 +466,87 @@ Template.
   </div>
   <button class="button" type="submit">Purchase</button>
 </form>
+```
+### Standalone
+Standalone components do not need modules and use other specifications via imports. `imports: [FormModule],`
+Bootsrapping.
+```typescript
+// in the main.ts file
+import {bootstrapApplication} from '@angular/platform-browser';
+import {PhotoAppComponent} from './app/photo.app.component';
+bootstrapApplication(PhotoAppComponent);
+```
+When bootstrapping an application, often you want to configure Angular’s dependency injection and provide configuration values or services for use throughout the application. You can pass these as providers to `bootstrapApplication`:
+```typescript
+bootstrapApplication(PhotoAppComponent, {
+  providers: [
+    {provide: BACKEND_URL, useValue: 'https://photoapp.looknongmodules.com/api'},
+    // ...
+  ]
+});
+```
+The standalone bootstrap operation is based on explicitly configuring a list of `Provider`s for dependency injection. In Angular, `provide`-prefixed functions can be used to configure different systems without needing to import NgModules. For example, `provideRouter` is used in place of `RouterModule.forRoot` to configure the router:
+```typescript
+bootstrapApplication(PhotoAppComponent, {
+  providers: [
+    {provide: BACKEND_URL, useValue: 'https://photoapp.looknongmodules.com/api'},
+    provideRouter([/* app routes */]),
+    // ...
+  ]
+});
+```
+Many third party libraries have also been updated to support this `provide`-function configuration pattern. If a library only offers an NgModule API for its DI configuration, you can use the `importProvidersFrom` utility to still use it with `bootstrapApplication and other standalone contexts:
+```typescript
+import {LibraryModule} from 'ngmodule-based-library';
+
+bootstrapApplication(PhotoAppComponent, {
+  providers: [
+    {provide: BACKEND_URL, useValue: 'https://photoapp.looknongmodules.com/api'},
+    importProvidersFrom(
+      LibraryModule.forRoot()
+    ),
+  ]
+});
+```
+Any route can lazily load its routed, standalone component by using `loadComponent`:
+```typescript
+export const ROUTES: Route[] = [
+  {path: 'admin', loadComponent: () => import('./admin/panel.component').then(mod => mod.AdminPanelComponent)},
+  // ...
+];
+```
+Lazy loading many routes at once
+```typescript
+// In the main application:
+export const ROUTES: Route[] = [
+  {path: 'admin', loadChildren: () => import('./admin/routes').then(mod => mod.ADMIN_ROUTES)},
+  // ...
+];
+
+// In admin/routes.ts:
+export const ADMIN_ROUTES: Route[] = [
+  {path: 'home', component: AdminHomeComponent},
+  {path: 'users', component: AdminUsersComponent},
+  // ...
+];
+```
+
+
+
+```typescript
+export const routes: Routes = [
+  {
+    path: 'admin',
+    providers: [
+      AdminService,
+      {provide: ADMIN_API_KEY, useValue: '12345'},
+    ],
+    children: [
+      {path: 'users', component: AdminUsersComponent},
+      {path: 'teams', component: AdminTeamsComponent},
+    ],
+  },
+  // ... other application routes that don't
+  //     have access to ADMIN_API_KEY or AdminService.
+];
 ```
