@@ -96,3 +96,34 @@ And usage
 ```html
 <p appHighlight>Look at me!</p>
 ```
+
+## #Services
+**name.service.ts**
+Services are usually used for business logic sharing throug dependency injection pattern.
+	`providedIn` - This allows you to define what parts of the application can access the service. For example, ‘root’ will allow a service to be accessed anywhere within the application.
+```typescript
+import {Injectable} from '@angular/core';
+@Injectable({
+  providedIn: 'root',
+})
+class CalculatorService {
+  add(x: number, y: number) {
+    return x + y;
+  }
+}```
+Recieving service in the component:
+```typescript
+import { Component } from '@angular/core';
+import { CalculatorService } from './calculator.service';
+
+@Component({
+  selector: 'app-receipt',
+  template: `<h1>The total is {{ totalCost }}</h1>`,
+})
+export class Receipt {
+  //private calculatorService = inject(CalculatorService);
+  totalCost = this.calculatorService.add(50, 25);
+  constructor(calculatorService:CalculatorService){
+  }
+}
+```
