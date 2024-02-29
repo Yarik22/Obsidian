@@ -1,0 +1,10 @@
+{
+  "shiba-theme-settings@@shib-custom-vault-folder-toggle": false,
+  "shiba-theme-settings@@shiba-toggle-folder-icons": true,
+  "shiba-theme-settings@@shiba-toggle-indent-colors": true,
+  "shiba-theme-settings@@shiba-toggle-indent-colors-accent": false,
+  "shiba-theme-settings@@shiba-remove-file-icons": false,
+  "shiba-theme-settings@@shiba-colors-theme-light": "default-light-theme",
+  "shiba-theme-settings@@shiba-colors-theme-dark": "Lilac-dark",
+  "shiba-theme-settings@@shiba-accent-colors": "accent-blue"
+}

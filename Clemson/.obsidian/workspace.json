@@ -4,15 +4,19 @@
     "type": "split",
     "children": [
       {
-        "id": "23bd04650194d4ff",
+        "id": "08eecf081e669ae2",
         "type": "tabs",
         "children": [
           {
-            "id": "7fa2aa79bd118ff9",
+            "id": "9ffcafa03007b570",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "Skills/Angular/Documentation.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -65,7 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 297.5
   },
   "right": {
     "id": "ec33c044bc6fdda7",
@@ -81,6 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Skills/Angular/Documentation.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Skills/Angular/Documentation.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +124,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "Skills/Angular/Documentation.md"
+              }
             }
           }
         ]
@@ -139,45 +147,45 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "7fa2aa79bd118ff9",
+  "active": "9ffcafa03007b570",
   "lastOpenFiles": [
-    "Excalidraw/Drawing 2024-02-28 23.49.08.excalidraw.md",
-    "Excalidraw/Drawing 2024-02-28 23.49.02.excalidraw.md",
-    "Excalidraw/Drawing 2024-02-28 23.48.45.excalidraw.md",
-    "Excalidraw",
-    "Business development/Work/Resume/Fullstack  Angular resume.md",
-    "Business development/Work/Resume/Fullstack React resume.md",
-    "Business development/University/Projects/Intouch.md",
-    "Business development/Self development/Hard skills/Technologies/Untitled",
-    "Business development/Self development/Hard skills/Technologies/Angular",
-    "Business development/Self development/Hard skills/Technologies/Nest",
-    "Business development/Self development/Hard skills/Technologies/React",
-    "Business development/University/Projects/Portfolio.md",
-    "Entertainment&Society/Wishes/Buying new PC.md",
-    "Business development/Self development/Hard skills/Hardware/Blind typing.md",
-    "Entertainment&Society/Wishes",
-    "Business development/Self development/Hard skills/Hardware/Untitled.md",
-    "Business development/Self development/Soft skills/Media/YouTube",
-    "Business development/Self development/Soft skills/Media/YouTube.md",
-    "Business development/Self development/Soft skills/Media/Twitch",
-    "Business development/Self development/Soft skills/Media/Twitch.md",
-    "Business development/Self development/Soft skills/Media/TikTok.md",
-    "Business development/Self development/Soft skills/Media/TikTok",
-    "Business development/Self development/Soft skills/Media/Untitled.md",
-    "Business development/University/Projects/Mouvy.md",
-    "Business development/University/Regular/QA.md",
-    "Business development/University/Regular/Database.md",
-    "Business development/University/Regular/API.md",
-    "Business development/University/Regular/Networks.md",
-    "Business development/Work/Untitled/Untitled.md",
-    "Business development/Work/Untitled/Untitled",
-    "Business development/Work/Readme.md",
-    "Business development/University/Readme.md",
-    "Business development/Self development/Readme.md",
-    "Business development/Self development/Techs.md",
+    "Skills/Angular/CLI.md",
+    "Skills/Angular/Documentation.md",
+    "Skills/Angular/Server side rendering.md",
+    "Skills/TS/Mindset.md",
+    "Skills/TS/Documentation.md",
+    "Skills/TS",
+    "Skills/Angular/Mindset.md",
+    "Projects/Mouvy/Database.md",
+    "Projects/Mouvy/Frontend.md",
+    "Projects/Intouch/Testing.md",
+    "Projects/Intouch/Scrum.md",
+    "Projects/Intouch/Frontend.md",
+    "Projects/Intouch/Backend.md",
+    "Skills/BlindTyping/Principles.md",
+    "Skills/English",
+    "Projects/Untitled",
+    "Projects/Intouch",
+    "Projects/Mouvy",
+    "Skills/BlindTyping",
+    "Skills/Angular",
+    "Other",
+    "Projects",
+    "Skills",
+    "Projects/Mouvy.md",
     "Untitled.canvas",
-    "Business development/Untitled.md",
-    "Untitled.md",
+    "Business development/Self development/Hard skills/Hardware/Blind typing.md",
+    "Business development/Self development/Hard skills/Technologies/Angular/Documentation.md",
+    "Business development/Self development/Hard skills/Technologies/Angular/Lifecycle.md",
+    "Business development/University/Projects/Mouvy/Angular.md",
+    "Business development/University/Projects/Intouch/Untitled.md",
+    "Business development/University/Projects/Mouvy/Untitled.md",
+    "Business development/University/Projects/Mouvy/Database.md",
+    "Business development/University/Projects/Mouvy/Documentation.md",
+    "Business development/Self development/Hard skills/Technologies/Angular/Untitled.md",
+    "Business development/Self development/Hard skills/Technologies/React/Documentation.md",
+    "Business development/University/Regular/QA.md",
+    "Business development/University/Regular/Networks.md",
     "Untitled 2.canvas",
     "Untitled 3.canvas",
     "Untitled 1.canvas"
