@@ -109,7 +109,6 @@ Parent template:
 <button type="button" (click)="share()">
   Share
 </button>
-
 <child
   [product]="product" 
   (notify)="onNotify()">
@@ -138,7 +137,6 @@ The application already uses the Angular `Router` to navigate to the `Product
 Template. `['/products', product.id]` is equal to '`/products' + product.id`.
 ```html
 <div *ngFor="let product of products">
-
   <h3>
     <a
       [title]="product.name + ' details'"
@@ -146,9 +144,7 @@ Template. `['/products', product.id]` is equal to '`/products' + product.id`.
       {{ product.name }}
     </a>
   </h3>
-
   <!-- . . . -->
-
 </div>
 ```
 Routed component.
@@ -183,6 +179,63 @@ Template.
   <p>{{ product.description }}</p>
 </div>
 ```
+The principle for adding routing in **standalone components** is changed.
+```typescript
+//app.routes.ts
+export const routes: Routes = [
+  { path: '', component: HomePageComponent, pathMatch: 'full' },
+  { path: 'feedback', component: FeedbackPageComponent },
+  { path: 'movie/:id', component: MoviePageComponent },
+  { path: '**', component: PageNotFoundComponent },
+];
+```
+Component need RouterLink import.
+```typescript
+@Component({
+  selector: 'app-home',
+  standalone: true,
+  imports: [CommonModule, RouterLink, HighlightingDirective],
+  templateUrl: './home.component.html',
+  styleUrl: './home.component.scss',
+
+})
+```
+Template is similar.
+```html
+    <div class="movie-card" [routerLink]="['/movie', movie.id]">
+      <h2>{{ movie.title }}</h2>
+      <p>Rating: {{ movie.rating }}</p>
+      <p>Director: {{ movie.director }}</p>
+      <p>Genres: {{ movie.genres.join(", ") }}</p>
+    </div>
+```
+Use route in routed component.
+```typescript
+@Component({
+  selector: 'app-movie',
+  standalone: true,
+  imports: [],
+  templateUrl: './movie.component.html',
+  styleUrl: './movie.component.scss',
+})
+export class MoviePageComponent {
+  movie?: Movie;
+  constructor(
+    private route: ActivatedRoute,
+    private moviesService: MoviesService
+  ) {
+    const id = this.route.snapshot.paramMap.get('id');
+    if (id) {
+      this.movie = this.moviesService.getById(id);
+    }
+  }
+}
+```
+Template.
+```html
+<p>{{ movie?.title }}</p>
+```
+
 ## Directives
 **name.directive.ts**
 Directives are used for handling behaviour of elements in angular. Examples of this include: displaying content based on a certain condition, rendering a list of items based on application data, changing the styles on an element based on user interaction, etc. There some examples of basical directives.
