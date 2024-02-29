@@ -48,7 +48,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:#Directives",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -65,7 +65,8 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -147,10 +148,11 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "9ffcafa03007b570",
+  "active": "ae7a620d8739c67b",
   "lastOpenFiles": [
-    "Skills/Angular/CLI.md",
+    "Untitled",
     "Skills/Angular/Documentation.md",
+    "Skills/Angular/CLI.md",
     "Skills/Angular/Server side rendering.md",
     "Skills/TS/Mindset.md",
     "Skills/TS/Documentation.md",
@@ -185,7 +187,6 @@
     "Business development/Self development/Hard skills/Technologies/Angular/Untitled.md",
     "Business development/Self development/Hard skills/Technologies/React/Documentation.md",
     "Business development/University/Regular/QA.md",
-    "Business development/University/Regular/Networks.md",
     "Untitled 2.canvas",
     "Untitled 3.canvas",
     "Untitled 1.canvas"
