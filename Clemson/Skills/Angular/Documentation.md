@@ -1,14 +1,20 @@
 #Angular
-## #Intoduction
+## Intoduction
 Angular is a development platform built on TS [[Skills/TS/Documentation|Documentation]].
 It includes several main features:
 	1) Building scalable application;
 	2) Convenient libs and built in components (default) e.g. routing, forms management, SSR ([[Server side rendering]]);
 	3) Default suitable tools for developers
 Angular is used both for single-person project and enterprise-level apps. As usual Angular uses [[CLI]] and TS [[Skills/TS/Documentation|Documentation]]. All entities in angular use suffixes.
-## #Components
+## Module
+## Components
 **name.component.ts**
 Components are basic block in angular app. It usually used for maintaining scalability in project. It has a decorator to define options of copmponent.
+	`standalone` - Standalone components allows you to be independent from [module](#Module) in Angular;
+	`selector` - Alias for name of component in other html templates ;
+	`template(Url)` - HTML template or url to the template ;
+	`styles(Url)` - Scoped stylesheet(s) of component;
+	`imports` - Tools and libs that used in component (CommonModule, FormsModule etc.).
 ```typescript
 @Component({
   standalone: true,
@@ -46,7 +52,7 @@ Each template is rendered to the DOM tree and poses a template of html and ts sy
 <div [class.active]="isActive"> Some text...<div/>
 <div [style.color]="fontColor"> Some text...<div/>
 ```
-## #Directives
+## Directives
 **name.directive.ts**
 Directives are used for handling behaviour of elements in angular. Examples of this include: displaying content based on a certain condition, rendering a list of items based on application data, changing the styles on an element based on user interaction, etc. There some examples of basical directives.
 *\*ngIf*
@@ -97,7 +103,7 @@ And usage
 <p appHighlight>Look at me!</p>
 ```
 
-## #Services
+## Services
 **name.service.ts**
 Services are usually used for business logic sharing throug dependency injection pattern.
 	`providedIn` - This allows you to define what parts of the application can access the service. For example, ‘root’ will allow a service to be accessed anywhere within the application.
