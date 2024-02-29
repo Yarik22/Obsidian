@@ -351,5 +351,27 @@ export class ProductDetailsComponent implements OnInit {
     private route: ActivatedRoute,
     private cartService: CartService
   ) { }
+  addToCart(product: Product) {
+    this.cartService.addToCart(product);
+    window.alert('Your product has been added to the cart!');
+  }
+}
+```
+Retrieve data of cart in another component.
+```typescript
+export class CartComponent {
+  items = this.cartService.getItems();
+  constructor(
+    private cartService: CartService
+  ) { }
+}
+```
+It is appropriate to use HttpClient when data is external. Firstly, import HttpClient.
+```typescript
+export class CartComponent {
+  items = this.cartService.getItems();
+  constructor(
+    private cartService: CartService
+  ) { }
 }
 ```
