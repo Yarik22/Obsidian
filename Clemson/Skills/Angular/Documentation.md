@@ -7,14 +7,38 @@ It includes several main features:
 	3) Default suitable tools for developers
 Angular is used both for single-person project and enterprise-level apps. As usual Angular uses [[CLI]] and TS [[Skills/TS/Documentation|Documentation]]. All entities in angular use suffixes.
 ## Module
+Modules are a great way to organize an application and extend it with capabilities from external libraries.
+NgModule metadata does the following:
+	1) Declares which components, directives, and pipes belong to the module (`declarations`)
+	2) Makes some of those components, directives, and pipes public so that other module's component templates can use them
+	3) Imports other modules with the components, directives, and pipes that components in the current module need (`imports`)
+	4) Provides services that other application components can use (`providers`)
+The Angular [[CLI]] generates the following basic `AppModule` when creating a new application.
+Every Angular application has at least one module, the root module. You `bootstrap` that module to launch the application.
+```typescript
+// imports
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+
+import { AppComponent } from './app.component';
+
+// @NgModule decorator with its metadata
+@NgModule({
+  declarations: [AppComponent],
+  imports: [BrowserModule],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule {}
+```
 ## Components
 **name.component.ts**
 Components are basic block in angular app. It usually used for maintaining scalability in project. It has a decorator to define options of copmponent.
 	`standalone` - Standalone components allows you to be independent from [module](#Module) in Angular;
-	`selector` - Alias for name of component in other html templates ;
-	`template(Url)` - HTML template or url to the template ;
+	`selector` - Alias for name of component in other html templates;
+	`template(Url)` - HTML template or url to the template;
 	`styles(Url)` - Scoped stylesheet(s) of component;
-	`imports` - Tools and libs that used in component (CommonModule, FormsModule etc.).
+	`imports` - Tools and libs that used in component (CommonModule, FormsModule etc.) when component is standalone.
 ```typescript
 @Component({
   standalone: true,
@@ -52,23 +76,35 @@ Each template is rendered to the DOM tree and poses a template of html and ts sy
 <div [class.active]="isActive"> Some text...<div/>
 <div [style.color]="fontColor"> Some text...<div/>
 ```
+### Pass data to a child component
+For simple passing data you can use `@Input` or `Output`. Usage depends on where you pass the data *Parent-Child* or *Child-Parent*. Example:
+```typescript
+export class ChildComponent {
+@Input() product: Product | undefined;
+@Output() notify = new EventEmitter();
+}
+```
+```html
+<button type="button" (click)="notify.emit()">Notify Me</button>
+```
+
 ## Directives
 **name.directive.ts**
 Directives are used for handling behaviour of elements in angular. Examples of this include: displaying content based on a certain condition, rendering a list of items based on application data, changing the styles on an element based on user interaction, etc. There some examples of basical directives.
 *\*ngIf*
-```typescript
+```html
 <section class="admin-controls" *ngIf="hasAdminPrivileges">
 The content you are looking for is here.
 </section>
 ```
 *\*ngFor*
-```typescript
+```html
 <ul class="ingredient-list">
   <li *ngFor="let task of taskList">{{ task }}</li>
 </ul>
 ```
 *\*ngSwitch*
-```typescript
+```html
 <div [ngSwitch]="userRole">
   <p *ngSwitchCase="'admin'">Admin View</p>
   <p *ngSwitchCase="'user'">User View</p>
@@ -76,15 +112,15 @@ The content you are looking for is here.
 </div>
 ```
 *\*ngClass*
-```typescript
+```html
 <div [ngClass]="{'active': isActive, 'disabled': isDisabled}">...</div>
 ```
 *\*ngStyle*
-```typescript
+```html
 <div [ngStyle]="{'color': fontColor, 'font-size': fontSize + 'px'}">...</div>
 ```
 *\*ngModel* (Two-way data binding)
-```typescript
+```html
 <input type="text" [(ngModel)]="username">
 ```
 Example of custom directive
