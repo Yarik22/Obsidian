@@ -77,17 +77,112 @@ Each template is rendered to the DOM tree and poses a template of html and ts sy
 <div [style.color]="fontColor"> Some text...<div/>
 ```
 ### Pass data to a child component
-For simple passing data you can use `@Input` or `Output`. Usage depends on where you pass the data *Parent-Child* or *Child-Parent*. Example:
+For simple passing data you can use `@Input` or `Output`. Usage depends on where you pass the data *Parent-Child* or *Child-Parent*. 
+Child example:
 ```typescript
 export class ChildComponent {
 @Input() product: Product | undefined;
 @Output() notify = new EventEmitter();
 }
 ```
+Child template:
 ```html
 <button type="button" (click)="notify.emit()">Notify Me</button>
 ```
+Parent example:
+```typescript
+export class ProductListComponent {
 
+  products = [...products];
+
+  share() {
+    window.alert('The product has been shared!');
+  }
+
+  onNotify() {
+    window.alert('You will be notified when the product goes on sale');
+  }
+}
+```
+Parent template:
+```html
+<button type="button" (click)="share()">
+  Share
+</button>
+
+<child
+  [product]="product" 
+  (notify)="onNotify()">
+</child>
+```
+### Adding navigation
+The application already uses the Angular `Router` to navigate to the `ProductListComponent`. This section shows you how to define a route to show individual product details. There is next principle adding routing **for modules**.
+```typescript
+@NgModule({
+  imports: [
+    BrowserModule,
+    ReactiveFormsModule,
+    RouterModule.forRoot([
+      { path: '', component: ProductListComponent },
+      { path: 'products/:productId', component: ProductDetailsComponent },
+    ])
+  ],
+  declarations: [
+    AppComponent,
+    TopBarComponent,
+    ProductListComponent,
+    ProductAlertsComponent,
+    ProductDetailsComponent,
+  ],
+```
+Template. `['/products', product.id]` is equal to '`/products' + product.id`.
+```html
+<div *ngFor="let product of products">
+
+  <h3>
+    <a
+      [title]="product.name + ' details'"
+      [routerLink]="['/products', product.id]">
+      {{ product.name }}
+    </a>
+  </h3>
+
+  <!-- . . . -->
+
+</div>
+```
+Routed component.
+```typescript
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
+import { Product, products } from '../products';
+export class ProductDetailsComponent implements OnInit {
+
+  product: Product | undefined;
+
+  constructor(private route: ActivatedRoute) { }
+  ngOnInit() {
+  // First get the product id from the current route.
+  const routeParams = this.route.snapshot.paramMap;
+  const productIdFromRoute = Number(routeParams.get('productId'));
+
+  // Find the product that correspond with the id provided in route.
+  this.product = products.find(product => product.id === productIdFromRoute);
+}
+
+}
+```
+Template.
+```html
+<h2>Product Details</h2>
+
+<div *ngIf="product">
+  <h3>{{ product.name }}</h3>
+  <h4>{{ product.price | currency }}</h4>
+  <p>{{ product.description }}</p>
+</div>
+```
 ## Directives
 **name.directive.ts**
 Directives are used for handling behaviour of elements in angular. Examples of this include: displaying content based on a certain condition, rendering a list of items based on application data, changing the styles on an element based on user interaction, etc. There some examples of basical directives.
