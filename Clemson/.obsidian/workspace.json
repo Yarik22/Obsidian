@@ -4,16 +4,18 @@
     "type": "split",
     "children": [
       {
-        "id": "b8cfd81d31425f64",
+        "id": "e2874cc81e9c0e75",
         "type": "tabs",
         "children": [
           {
-            "id": "f1f30a519431a7bb",
+            "id": "38d0e49ed5e77cb3",
             "type": "leaf",
             "state": {
-              "type": "excalidraw",
+              "type": "markdown",
               "state": {
-                "file": "Skills/Angular/Extended architectures.excalidraw.md"
+                "file": "Skills/Angular/Documentation.md",
+                "mode": "source",
+                "source": false
               }
             }
           }
@@ -83,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Skills/Angular/Extended architectures.excalidraw.md",
+                "file": "Skills/Angular/Documentation.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -100,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Skills/Angular/Extended architectures.excalidraw.md",
+                "file": "Skills/Angular/Documentation.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -123,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Skills/Angular/Extended architectures.excalidraw.md"
+                "file": "Skills/Angular/Documentation.md"
               }
             }
           }
@@ -145,8 +147,9 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "f1f30a519431a7bb",
+  "active": "38d0e49ed5e77cb3",
   "lastOpenFiles": [
+    "Skills/TS/Documentation.md",
     "Skills/Angular/Documentation.md",
     "Skills/Angular/Extended architectures.excalidraw.md",
     "Extended architectures.excalidraw.md",
@@ -161,7 +164,6 @@
     "Untitled",
     "Skills/Angular/Server side rendering.md",
     "Skills/TS/Mindset.md",
-    "Skills/TS/Documentation.md",
     "Skills/TS",
     "Projects/Mouvy/Database.md",
     "Projects/Mouvy/Frontend.md",
