@@ -510,29 +510,27 @@ bootstrapApplication(PhotoAppComponent, {
 ```
 Any route can lazily load its routed, standalone component by using `loadComponent`:
 ```typescript
-export const ROUTES: Route[] = [
+export const routes: Routes = [
   {path: 'admin', loadComponent: () => import('./admin/panel.component').then(mod => mod.AdminPanelComponent)},
   // ...
 ];
 ```
-Lazy loading many routes at once
+When using loadChildren and loadComponent, the router understands and automatically unwraps dynamic import() calls with default exports. You can take advantage of this to skip the .then() for such lazy loading operations.
 ```typescript
 // In the main application:
-export const ROUTES: Route[] = [
+export const routes: Routes = [
   {path: 'admin', loadChildren: () => import('./admin/routes').then(mod => mod.ADMIN_ROUTES)},
   // ...
 ];
 
 // In admin/routes.ts:
-export const ADMIN_ROUTES: Route[] = [
+export const ADMIN_ROUTES: Routes = [
   {path: 'home', component: AdminHomeComponent},
   {path: 'users', component: AdminUsersComponent},
   // ...
 ];
 ```
-
-
-
+The Router now supports explicitly specifying additional providers on a Route, which allows this same scoping without the need for either lazy loading or NgModules. For example, scoped services within an /admin route structure would look like:
 ```typescript
 export const routes: Routes = [
   {
