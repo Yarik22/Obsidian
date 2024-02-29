@@ -368,10 +368,54 @@ export class CartComponent {
 ```
 It is appropriate to use HttpClient when data is external. Firstly, import HttpClient.
 ```typescript
+import { HttpClient } from '@angular/common/http';
+import { Product } from './products';
+import { Injectable } from '@angular/core';
+@Injectable({
+  providedIn: 'root'
+})
+export class CartService {
+  items: Product[] = [];
+
+  constructor(
+    private http: HttpClient
+  ) {}
+  getShippingPrices() {
+    return this.http.get<{type: string, price: number}[]>('/assets/shipping.json');
+  }
+}
+/* . . . */
+}
+```
+Secondly use Observable pattern in component.
+```typescript
+export class ShippingComponent implements OnInit {
+  shippingCosts!: Observable<{ type: string, price: number }[]>;
+  ngOnInit(): void {
+    this.shippingCosts =  this.cartService.getShippingPrices();
+  }
+}
+```
+Add to template.
+```html
+<h3>Shipping Prices</h3>
+<div class="shipping-item" *ngFor="let shipping of shippingCosts | async">
+  <span>{{ shipping.type }}</span>
+  <span>{{ shipping.price | currency }}</span>
+</div>
+```
+### Using forms
+To construct forms, eventually, you need angular FormBuilder and submission method.
+```typescript
 export class CartComponent {
   items = this.cartService.getItems();
+  checkoutForm = this.formBuilder.group({
+    name: '',
+    address: ''
+  });
   constructor(
-    private cartService: CartService
-  ) { }
+    private cartService: CartService,
+    private formBuilder: FormBuilder,
+  ) {}
 }
 ```

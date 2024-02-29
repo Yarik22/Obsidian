@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "a7e5bddb80163258",
+        "id": "dc1ba95758383c9c",
         "type": "tabs",
         "children": [
           {
-            "id": "b9429a7435d97f6a",
+            "id": "58af67489d6bc49a",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -147,10 +147,10 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "b9429a7435d97f6a",
+  "active": "58af67489d6bc49a",
   "lastOpenFiles": [
-    "().md",
     "Skills/Angular/Documentation.md",
+    "().md",
     "Skills/Angular/CLI.md",
     "Managing.md",
     "Skills/Angular/Mindset.md",
