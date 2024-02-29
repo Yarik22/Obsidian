@@ -4,18 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "dc1ba95758383c9c",
+        "id": "b8cfd81d31425f64",
         "type": "tabs",
         "children": [
           {
-            "id": "58af67489d6bc49a",
+            "id": "f1f30a519431a7bb",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "excalidraw",
               "state": {
-                "file": "Skills/Angular/Documentation.md",
-                "mode": "source",
-                "source": false
+                "file": "Skills/Angular/Extended architectures.excalidraw.md"
               }
             }
           }
@@ -85,7 +83,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Skills/Angular/Documentation.md",
+                "file": "Skills/Angular/Extended architectures.excalidraw.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +100,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Skills/Angular/Documentation.md",
+                "file": "Skills/Angular/Extended architectures.excalidraw.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +123,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Skills/Angular/Documentation.md"
+                "file": "Skills/Angular/Extended architectures.excalidraw.md"
               }
             }
           }
@@ -147,9 +145,14 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "58af67489d6bc49a",
+  "active": "f1f30a519431a7bb",
   "lastOpenFiles": [
     "Skills/Angular/Documentation.md",
+    "Skills/Angular/Extended architectures.excalidraw.md",
+    "Extended architectures.excalidraw.md",
+    "Extended.md",
+    "Extende.md",
+    "Excalidraw",
     "().md",
     "Skills/Angular/CLI.md",
     "Managing.md",
@@ -174,7 +177,6 @@
     "Skills/BlindTyping",
     "Skills/Angular",
     "Other",
-    "Projects",
     "Projects/Mouvy.md",
     "Untitled.canvas",
     "Business development/Self development/Hard skills/Hardware/Blind typing.md",
@@ -182,10 +184,6 @@
     "Business development/Self development/Hard skills/Technologies/Angular/Lifecycle.md",
     "Business development/University/Projects/Mouvy/Angular.md",
     "Business development/University/Projects/Intouch/Untitled.md",
-    "Business development/University/Projects/Mouvy/Untitled.md",
-    "Business development/University/Projects/Mouvy/Database.md",
-    "Business development/University/Projects/Mouvy/Documentation.md",
-    "Business development/Self development/Hard skills/Technologies/Angular/Untitled.md",
     "Untitled 2.canvas",
     "Untitled 3.canvas",
     "Untitled 1.canvas"

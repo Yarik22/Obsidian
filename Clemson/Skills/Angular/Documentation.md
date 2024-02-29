@@ -5,7 +5,7 @@ It includes several main features:
 	1) Building scalable application;
 	2) Convenient libs and built in components (default) e.g. routing, forms management, SSR ([[Server side rendering]]);
 	3) Default suitable tools for developers
-Angular is used both for single-person project and enterprise-level apps. As usual Angular uses [[CLI]] and TS [[Skills/TS/Documentation|Documentation]]. All entities in angular use suffixes.
+Angular is used both for single-person project and enterprise-level apps. As usual Angular uses [[CLI]] and TS [[Skills/TS/Documentation|Documentation]]. All entities in angular use suffixes. Get acquainted with architecture.[[Extended architectures.excalidraw]].
 ## Module
 Modules are a great way to organize an application and extend it with capabilities from external libraries.
 NgModule metadata does the following:
@@ -407,15 +407,62 @@ Add to template.
 ### Using forms
 To construct forms, eventually, you need angular FormBuilder and submission method.
 ```typescript
+import { Component } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
+
+import { CartService } from '../cart.service';
+
+@Component({
+  selector: 'app-cart',
+  templateUrl: './cart.component.html',
+  styleUrls: ['./cart.component.css']
+})
 export class CartComponent {
+
   items = this.cartService.getItems();
+
   checkoutForm = this.formBuilder.group({
     name: '',
     address: ''
   });
+
   constructor(
     private cartService: CartService,
     private formBuilder: FormBuilder,
   ) {}
+
+  onSubmit(): void {
+    // Process checkout data here
+    this.items = this.cartService.clearCart();
+    console.warn('Your order has been submitted', this.checkoutForm.value);
+    this.checkoutForm.reset();
+  }
 }
+```
+Template.
+```html
+<h3>Cart</h3>
+
+<p>
+  <a routerLink="/shipping">Shipping Prices</a>
+</p>
+<div class="cart-item" *ngFor="let item of items">
+  <span>{{ item.name }} </span>
+  <span>{{ item.price | currency }}</span>
+</div>
+<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="name">
+      Name
+    </label>
+    <input id="name" type="text" formControlName="name">
+  </div>
+  <div>
+    <label for="address">
+      Address
+    </label>
+    <input id="address" type="text" formControlName="address">
+  </div>
+  <button class="button" type="submit">Purchase</button>
+</form>
 ```
