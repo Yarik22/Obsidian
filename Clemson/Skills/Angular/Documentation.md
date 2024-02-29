@@ -34,7 +34,7 @@ export class AppModule {}
 ## Components
 **name.component.ts**
 Components are basic block in angular app. It usually used for maintaining scalability in project. It has a decorator to define options of copmponent.
-	`standalone` - Standalone components allows you to be independent from [module](#Module) in Angular;
+	`standalone` - Standalone components allows you to be independent from [module](###Module) in Angular;
 	`selector` - Alias for name of component in other html templates;
 	`template(Url)` - HTML template or url to the template;
 	`styles(Url)` - Scoped stylesheet(s) of component;
@@ -76,6 +76,88 @@ Each template is rendered to the DOM tree and poses a template of html and ts sy
 <div [class.active]="isActive"> Some text...<div/>
 <div [style.color]="fontColor"> Some text...<div/>
 ```
+## Directives
+**name.directive.ts**
+Directives are used for handling behaviour of elements in angular. Examples of this include: displaying content based on a certain condition, rendering a list of items based on application data, changing the styles on an element based on user interaction, etc. There some examples of basical directives.
+*\*ngIf*
+```html
+<section class="admin-controls" *ngIf="hasAdminPrivileges">
+The content you are looking for is here.
+</section>
+```
+*\*ngFor*
+```html
+<ul class="ingredient-list">
+  <li *ngFor="let task of taskList">{{ task }}</li>
+</ul>
+```
+*\*ngSwitch*
+```html
+<div [ngSwitch]="userRole">
+  <p *ngSwitchCase="'admin'">Admin View</p>
+  <p *ngSwitchCase="'user'">User View</p>
+  <p *ngSwitchDefault>Guest View</p>
+</div>
+```
+*\*ngClass*
+```html
+<div [ngClass]="{'active': isActive, 'disabled': isDisabled}">...</div>
+```
+*\*ngStyle*
+```html
+<div [ngStyle]="{'color': fontColor, 'font-size': fontSize + 'px'}">...</div>
+```
+*\*ngModel* (Two-way data binding)
+```html
+<input type="text" [(ngModel)]="username">
+```
+Example of custom directive
+```typescript
+@Directive({
+  selector: '[appHighlight]',
+})
+export class HighlightDirective {
+  private el = inject(ElementRef);
+  constructor() {
+    this.el.nativeElement.style.backgroundColor = 'yellow';
+  }
+}```
+And usage
+```html
+<p appHighlight>Look at me!</p>
+```
+
+## Services
+**name.service.ts**
+Services are usually used for business logic sharing throug dependency injection pattern.
+	`providedIn` - This allows you to define what parts of the application can access the service. For example, ‘root’ will allow a service to be accessed anywhere within the application.
+```typescript
+import {Injectable} from '@angular/core';
+@Injectable({
+  providedIn: 'root',
+})
+class CalculatorService {
+  add(x: number, y: number) {
+    return x + y;
+  }
+}```
+Recieving service in the component:
+```typescript
+import { Component } from '@angular/core';
+import { CalculatorService } from './calculator.service';
+
+@Component({
+  selector: 'app-receipt',
+  template: `<h1>The total is {{ totalCost }}</h1>`,
+})
+export class Receipt {
+  //private calculatorService = inject(CalculatorService);
+  totalCost = this.calculatorService.add(50, 25);
+  constructor(private calculatorService:CalculatorService){
+  }
+}
+```
+## Workflow
 ### Pass data to a child component
 For simple passing data you can use `@Input` or `Output`. Usage depends on where you pass the data *Parent-Child* or *Child-Parent*. 
 Child example:
@@ -235,85 +317,39 @@ Template.
 ```html
 <p>{{ movie?.title }}</p>
 ```
-
-## Directives
-**name.directive.ts**
-Directives are used for handling behaviour of elements in angular. Examples of this include: displaying content based on a certain condition, rendering a list of items based on application data, changing the styles on an element based on user interaction, etc. There some examples of basical directives.
-*\*ngIf*
-```html
-<section class="admin-controls" *ngIf="hasAdminPrivileges">
-The content you are looking for is here.
-</section>
-```
-*\*ngFor*
-```html
-<ul class="ingredient-list">
-  <li *ngFor="let task of taskList">{{ task }}</li>
-</ul>
-```
-*\*ngSwitch*
-```html
-<div [ngSwitch]="userRole">
-  <p *ngSwitchCase="'admin'">Admin View</p>
-  <p *ngSwitchCase="'user'">User View</p>
-  <p *ngSwitchDefault>Guest View</p>
-</div>
-```
-*\*ngClass*
-```html
-<div [ngClass]="{'active': isActive, 'disabled': isDisabled}">...</div>
-```
-*\*ngStyle*
-```html
-<div [ngStyle]="{'color': fontColor, 'font-size': fontSize + 'px'}">...</div>
-```
-*\*ngModel* (Two-way data binding)
-```html
-<input type="text" [(ngModel)]="username">
-```
-Example of custom directive
+### Managing data
+Mainly data is managed via services which are injected to the components. Defining service.
 ```typescript
-@Directive({
-  selector: '[appHighlight]',
-})
-export class HighlightDirective {
-  private el = inject(ElementRef);
-  constructor() {
-    this.el.nativeElement.style.backgroundColor = 'yellow';
-  }
-}```
-And usage
-```html
-<p appHighlight>Look at me!</p>
-```
-
-## Services
-**name.service.ts**
-Services are usually used for business logic sharing throug dependency injection pattern.
-	`providedIn` - This allows you to define what parts of the application can access the service. For example, ‘root’ will allow a service to be accessed anywhere within the application.
-```typescript
-import {Injectable} from '@angular/core';
+import { Product } from './products';
+import { Injectable } from '@angular/core';
+/* . . . */
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
-class CalculatorService {
-  add(x: number, y: number) {
-    return x + y;
+export class CartService {
+  items: Product[] = [];
+/* . . . */
+  addToCart(product: Product) {
+    this.items.push(product);
   }
-}```
-Recieving service in the component:
+  getItems() {
+    return this.items;
+  }
+  clearCart() {
+    this.items = [];
+    return this.items;
+  }
+/* . . . */
+}
+}
+```
+Implement to the component.
 ```typescript
-import { Component } from '@angular/core';
-import { CalculatorService } from './calculator.service';
+export class ProductDetailsComponent implements OnInit {
 
-@Component({
-  selector: 'app-receipt',
-  template: `<h1>The total is {{ totalCost }}</h1>`,
-})
-export class Receipt {
-  //private calculatorService = inject(CalculatorService);
-  totalCost = this.calculatorService.add(50, 25);
-  constructor(calculatorService:CalculatorService){
-  }
+  constructor(
+    private route: ActivatedRoute,
+    private cartService: CartService
+  ) { }
 }
 ```
