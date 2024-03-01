@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Skills/Angular/Documentation.md",
+                "file": "Skills/Angular/Mindset.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Skills/Angular/Documentation.md",
+                "file": "Skills/Angular/Mindset.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Skills/Angular/Documentation.md",
+                "file": "Skills/Angular/Mindset.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Skills/Angular/Documentation.md"
+                "file": "Skills/Angular/Mindset.md"
               }
             }
           }
@@ -149,20 +149,21 @@
   },
   "active": "38d0e49ed5e77cb3",
   "lastOpenFiles": [
-    "Skills/TS/Documentation.md",
     "Skills/Angular/Documentation.md",
     "Skills/Angular/Extended architectures.excalidraw.md",
+    "Skills/BlindTyping/Principles.md",
+    "Skills/Angular/Server side rendering.md",
+    "Skills/Angular/CLI.md",
+    "Skills/TS/Documentation.md",
     "Extended architectures.excalidraw.md",
     "Extended.md",
     "Extende.md",
     "Excalidraw",
     "().md",
-    "Skills/Angular/CLI.md",
     "Managing.md",
     "Skills/Angular/Mindset.md",
     "Module.md",
     "Untitled",
-    "Skills/Angular/Server side rendering.md",
     "Skills/TS/Mindset.md",
     "Skills/TS",
     "Projects/Mouvy/Database.md",
@@ -171,7 +172,6 @@
     "Projects/Intouch/Scrum.md",
     "Projects/Intouch/Frontend.md",
     "Projects/Intouch/Backend.md",
-    "Skills/BlindTyping/Principles.md",
     "Skills/English",
     "Projects/Untitled",
     "Projects/Intouch",

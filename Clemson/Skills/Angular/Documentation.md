@@ -548,3 +548,4 @@ export const routes: Routes = [
   //     have access to ADMIN_API_KEY or AdminService.
 ];
 ```
+### Angular change detection and runtime optimization 
