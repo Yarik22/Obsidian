@@ -26,4 +26,5 @@ Obsidian as note writer
     </tbody>
 </table>
 ____________________________________________________________________
+
 Here is some useful links
