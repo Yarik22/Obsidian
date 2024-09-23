@@ -1,0 +1,1 @@
+Clemson's personal diary, designed for stage performance of skills and projects development
