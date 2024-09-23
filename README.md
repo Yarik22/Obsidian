@@ -1,11 +1,10 @@
 Clemson's personal diary, designed for stage performance of skills and projects development. Main preferences of this diary are midn setting and self improving. Exclusive way of joblife observing.
 git clone this rep and add to obsidian.
-```html
 <table>
     <thead>
         <tr>
-            <th>Extention</th>
-            <th>Purpose</th>
+            <th align="center">Extention</th>
+            <th align="center">Purpose</th>
         </tr>
     </thead>
     <tbody>
@@ -23,6 +22,5 @@ git clone this rep and add to obsidian.
         </tr>
     </tbody>
 </table>
-```
 ____________________________________________________________________
 Here is some useful links
